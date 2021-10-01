@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <?php
 session_start();
-        
+
+//Check if user is already logged in
+
+if (isset($_SESSION['stagingLoggedIn']) || $_SESSION['stagingLoggedIn'] == true) {
+        header("Location: index.php");
+}
+
 if(!empty($_POST)){
     $userUsername = $_POST["username"];
     $userPassword = $_POST["password"];
